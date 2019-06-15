@@ -2,9 +2,14 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Payments from "./Payments";
+import M from "materialize-css";
 
 export class Header extends Component {
-  renderSign = () => {
+  componentDidMount() {
+    M.Sidenav.init(this.sidenav);
+  }
+
+  renderSign = clsProp => {
     switch (this.props.payload) {
       case null:
         return (
@@ -41,22 +46,22 @@ export class Header extends Component {
       default:
         return (
           <>
-            <li className="hide-on-med-and-down">
+            <li className={clsProp}>
               <Link to="/surveys">Dashboard</Link>
             </li>
-            <li className="hide-on-med-and-down">
+            <li className={clsProp}>
               <Link to="/survey/new">New survey</Link>
             </li>
-            <li className="hide-on-med-and-down">
+            <li className={clsProp}>
               <Link>Credits : {this.props.payload.credits}</Link>
             </li>
-            <li>
+            <li className={` center-align ${clsProp}`}>
               <Payments />
             </li>
             <li>
               <a
                 href="/api/logout"
-                className="   waves-effect waves-light btn red lighten-2 no-hide-on-med-and-down "
+                className={`waves-effect waves-light btn red lighten-2  ${clsProp}`}
                 style={{ borderRadius: "4px" }}
               >
                 Sign Out
@@ -72,6 +77,9 @@ export class Header extends Component {
       <div>
         <nav>
           <div className="nav-wrapper  blue lighten-1 ">
+            <a className="sidenav-trigger" data-target="slide-out">
+              <i className="material-icons ">menu</i>
+            </a>
             <Link
               to={this.props.payload ? "/surveys" : "/"}
               className="brand-logo"
@@ -79,11 +87,21 @@ export class Header extends Component {
             >
               Emaily
             </Link>
+
             <ul id="nav-mobile" className="right">
-              {this.renderSign()}
+              {this.renderSign("hide-on-med-and-down")}
             </ul>
           </div>
         </nav>
+        <ul
+          className="sidenav"
+          id="slide-out"
+          ref={sidenav => {
+            this.sidenav = sidenav;
+          }}
+        >
+          {this.renderSign()}
+        </ul>
       </div>
     );
   }
