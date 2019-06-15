@@ -9,16 +9,16 @@ export class Header extends Component {
       case null:
         return (
           <div>
-            <div class="preloader-wrapper active">
-              <div class="spinner-layer spinner-red-only">
-                <div class="circle-clipper left">
-                  <div class="circle" />
+            <div className="preloader-wrapper active">
+              <div className="spinner-layer spinner-red-only">
+                <div className="circle-clipper left">
+                  <div className="circle" />
                 </div>
-                <div class="gap-patch">
-                  <div class="circle" />
+                <div className="gap-patch">
+                  <div className="circle" />
                 </div>
-                <div class="circle-clipper right">
-                  <div class="circle" />
+                <div className="circle-clipper right">
+                  <div className="circle" />
                 </div>
               </div>
             </div>
@@ -30,7 +30,7 @@ export class Header extends Component {
           <li>
             <a
               href="/auth/google"
-              class="   waves-effect waves-light btn red lighten-2 no-hide-on-med-and-down"
+              className="   waves-effect waves-light btn red lighten-2 no-hide-on-med-and-down"
               style={{ borderRadius: "4px" }}
             >
               Sign In
@@ -56,7 +56,7 @@ export class Header extends Component {
             <li>
               <a
                 href="/api/logout"
-                class="   waves-effect waves-light btn red lighten-2 no-hide-on-med-and-down "
+                className="   waves-effect waves-light btn red lighten-2 no-hide-on-med-and-down "
                 style={{ borderRadius: "4px" }}
               >
                 Sign Out
@@ -71,15 +71,15 @@ export class Header extends Component {
     return (
       <div>
         <nav>
-          <div class="nav-wrapper  blue lighten-1 ">
+          <div className="nav-wrapper  blue lighten-1 ">
             <Link
               to={this.props.payload ? "/surveys" : "/"}
-              class="brand-logo"
+              className="brand-logo"
               style={{ padding: "0 30px" }}
             >
               Emaily
             </Link>
-            <ul id="nav-mobile" class="right">
+            <ul id="nav-mobile" className="right">
               {this.renderSign()}
             </ul>
           </div>

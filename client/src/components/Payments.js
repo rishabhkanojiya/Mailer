@@ -17,7 +17,7 @@ export class Payments extends Component {
           stripeKey={process.env.REACT_APP_STRIPE_PUB_KEY}
         >
           <a
-            class="waves-effect waves-light btn red lighten-2 no-hide-on-med-and-down "
+            className="waves-effect waves-light btn red lighten-2 no-hide-on-med-and-down "
             style={{ borderRadius: "4px" }}
           >
             Add Credits
